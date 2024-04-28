@@ -5,5 +5,5 @@ import retrofit2.http.GET
 interface SportEventsService {
 
     @GET
-    suspend fun getSportEvents()
+    suspend fun getSportEvents(): EventsResponse
 }

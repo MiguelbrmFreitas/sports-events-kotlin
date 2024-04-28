@@ -1,5 +1,6 @@
 package com.example.data.repository.remote
 
+import com.example.domain.model.Event
 import com.squareup.moshi.Json
 
 data class ApiEvent(
@@ -11,4 +12,11 @@ data class ApiEvent(
     val eventName: String,
     @Json(name="tt")
     val timestamp: Long
+)
+
+fun ApiEvent.toEvent() = Event(
+    eventId = eventId,
+    sportId = sportId,
+    eventName = eventName,
+    timestamp = timestamp
 )
