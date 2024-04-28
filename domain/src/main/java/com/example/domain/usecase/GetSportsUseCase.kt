@@ -2,7 +2,7 @@ package com.example.domain.usecase
 
 import com.example.domain.repository.SportsRepository
 
-class GetSportEventsUseCase(
+class GetSportsUseCase(
     private val repository: SportsRepository
 ) {
 

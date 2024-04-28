@@ -2,7 +2,7 @@ package com.example.data.di
 
 import com.example.data.repository.SportsRepositoryImpl
 import com.example.data.repository.remote.SportsService
-import com.example.domain.usecase.GetSportEventsUseCase
+import com.example.domain.usecase.GetSportsUseCase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -43,7 +43,7 @@ object DataModule {
     }
 
     val useCasesModule = module {
-        single { GetSportEventsUseCase(get()) }
+        single { GetSportsUseCase(get()) }
     }
 
     private fun buildRetrofit(okHttpClient: OkHttpClient, url: String): Retrofit {
