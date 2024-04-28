@@ -1,9 +1,9 @@
 package com.example.data.repository.remote
 
-import com.example.domain.model.EventsWrapper
+import com.example.domain.model.Sport
 import com.squareup.moshi.Json
 
-data class EventsResponse(
+data class ApiSports(
     @Json(name = "i")
     val sportId: String,
     @Json(name = "d")
@@ -12,7 +12,7 @@ data class EventsResponse(
     val events: List<ApiEvent>
 )
 
-fun EventsResponse.toEventsWrapper() = EventsWrapper(
+fun ApiSports.toSport() = Sport(
     sportId = sportId,
     sportName = sportName,
     events = events.map { it.toEvent() }

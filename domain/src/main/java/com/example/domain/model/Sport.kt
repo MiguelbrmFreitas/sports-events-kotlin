@@ -1,6 +1,6 @@
 package com.example.domain.model
 
-data class EventsWrapper(
+data class Sport(
     val sportId: String,
     val sportName: String,
     val events: List<Event>

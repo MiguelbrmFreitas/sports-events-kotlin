@@ -1,9 +1,9 @@
 package com.example.domain.repository
 
-import com.example.domain.model.EventsWrapper
+import com.example.domain.model.Sport
 
 interface SportEventsRepository {
 
-    suspend fun getSportEvents(): EventsWrapper
+    suspend fun getSports(): List<Sport>
 
 }

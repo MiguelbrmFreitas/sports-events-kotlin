@@ -4,6 +4,6 @@ import com.example.domain.repository.SportEventsRepository
 
 class GetSportEventsUseCase(private val repository: SportEventsRepository) {
 
-    suspend operator fun invoke() = repository.getSportEvents()
+    suspend operator fun invoke() = repository.getSports()
 
 }

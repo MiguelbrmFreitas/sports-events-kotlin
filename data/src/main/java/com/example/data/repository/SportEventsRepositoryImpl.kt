@@ -1,16 +1,16 @@
 package com.example.data.repository
 
-import com.example.data.repository.remote.SportEventsService
-import com.example.data.repository.remote.toEventsWrapper
-import com.example.domain.model.EventsWrapper
+import com.example.data.repository.remote.SportsService
+import com.example.data.repository.remote.toSport
+import com.example.domain.model.Sport
 import com.example.domain.repository.SportEventsRepository
 
 class SportEventsRepositoryImpl(
-    private val service: SportEventsService
+    private val service: SportsService
 ): SportEventsRepository {
 
-    override suspend fun getSportEvents(): EventsWrapper {
-        return service.getSportEvents().toEventsWrapper()
+    override suspend fun getSports(): List<Sport> {
+        return service.getSports().map { it.toSport() }
     }
 
 }

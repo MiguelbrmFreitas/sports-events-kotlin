@@ -1,7 +1,8 @@
 package com.example.data.di
 
 import com.example.data.repository.SportEventsRepositoryImpl
-import com.example.data.repository.remote.SportEventsService
+import com.example.data.repository.remote.SportsService
+import com.example.domain.usecase.GetSportEventsUseCase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -41,6 +42,10 @@ object DataModule {
         ) }
     }
 
+    val useCasesModule = module {
+        single { GetSportEventsUseCase(get()) }
+    }
+
     private fun buildRetrofit(okHttpClient: OkHttpClient, url: String): Retrofit {
         val moshi by lazy {
             val moshiBuilder = Moshi.Builder()
@@ -65,12 +70,12 @@ object DataModule {
             .build()
     }
 
-    private fun buildApiService(retrofit: Retrofit): SportEventsService {
-        return retrofit.create(SportEventsService::class.java)
+    private fun buildApiService(retrofit: Retrofit): SportsService {
+        return retrofit.create(SportsService::class.java)
     }
 
     private fun buildRepository(
-        service: SportEventsService
+        service: SportsService
     ) = SportEventsRepositoryImpl(
         service = service
     )
