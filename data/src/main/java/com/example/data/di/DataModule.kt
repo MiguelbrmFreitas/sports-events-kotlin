@@ -1,6 +1,6 @@
 package com.example.data.di
 
-import com.example.data.repository.SportEventsRepositoryImpl
+import com.example.data.repository.SportsRepositoryImpl
 import com.example.data.repository.remote.SportsService
 import com.example.domain.usecase.GetSportEventsUseCase
 import com.squareup.moshi.Moshi
@@ -76,7 +76,7 @@ object DataModule {
 
     private fun buildRepository(
         service: SportsService
-    ) = SportEventsRepositoryImpl(
+    ) = SportsRepositoryImpl(
         service = service
     )
 
