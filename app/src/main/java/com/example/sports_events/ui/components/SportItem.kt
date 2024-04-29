@@ -43,8 +43,6 @@ fun SportItem(
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(start = 16.dp)
             )
-//        Spacer(modifier = Modifier.weight(0.6f))
-
         }
         Row(
             horizontalArrangement = Arrangement.Absolute.Right,
