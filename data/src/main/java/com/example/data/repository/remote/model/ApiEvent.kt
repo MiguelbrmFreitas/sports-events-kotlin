@@ -14,9 +14,15 @@ data class ApiEvent(
     val timestamp: Long
 )
 
-fun ApiEvent.toEvent() = Event(
-    eventId = eventId,
-    sportId = sportId,
-    eventName = eventName,
-    timestamp = timestamp
-)
+fun ApiEvent.toEvent(): Event {
+    val split = eventName.split("-")
+
+    return Event(
+        eventId = eventId,
+        sportId = sportId,
+        eventName = eventName,
+        timestamp = timestamp,
+        firstCompetitor = split.first(),
+        secondCompetitor = split[1]
+    )
+}
