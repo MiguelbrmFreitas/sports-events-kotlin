@@ -15,7 +15,6 @@ fun SportsList(
 ) {
     LazyColumn(
         modifier = Modifier
-            .padding(top = 32.dp)
             .fillMaxHeight()
     ) {
         items(sports) { sport ->

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">sports-events</string>
+
+    <string name="content_description_circle">Red circle</string>
+    <string name="content_description_down_arrow">Down arrow</string>
+    <string name="content_description_up_arrow">up arrow</string>
+    <string name="content_description_star">Empty star</string>
 </resources>
