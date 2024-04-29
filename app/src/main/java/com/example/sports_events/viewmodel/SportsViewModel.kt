@@ -14,7 +14,7 @@ class SportsViewModel(
 ): ViewModel() {
 
     private val _sports = MutableStateFlow<List<Sport>>(value = listOf())
-    private val sports = _sports.asStateFlow()
+    val sports = _sports.asStateFlow()
 
     init {
         getSports()
@@ -22,7 +22,9 @@ class SportsViewModel(
 
     private fun getSports() {
         viewModelScope.launch {
-            _sports.value = getSportsUseCase.invoke()
+            getSportsUseCase.invoke().let { sportsResponse ->
+                _sports.value = sportsResponse
+            }
         }
     }
 

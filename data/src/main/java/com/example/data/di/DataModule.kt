@@ -2,6 +2,7 @@ package com.example.data.di
 
 import com.example.data.repository.SportsRepositoryImpl
 import com.example.data.repository.remote.SportsService
+import com.example.domain.repository.SportsRepository
 import com.example.domain.usecase.GetSportsUseCase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -21,13 +22,14 @@ object DataModule {
 
     fun loadModules() {
         loadKoinModules(
-    remoteModule +
-            repositoryModule
+            remoteModule +
+            repositoryModule +
+            useCasesModule
         )
     }
 
     private val remoteModule = module {
-        single { buildApiService(get()) }
+        single { buildService(get()) }
 
         single { buildRetrofit(get(), BASE_URL) }
 
@@ -42,7 +44,7 @@ object DataModule {
         ) }
     }
 
-    val useCasesModule = module {
+    private val useCasesModule = module {
         single { GetSportsUseCase(get()) }
     }
 
@@ -70,15 +72,17 @@ object DataModule {
             .build()
     }
 
-    private fun buildApiService(retrofit: Retrofit): SportsService {
+    private fun buildService(retrofit: Retrofit): SportsService {
         return retrofit.create(SportsService::class.java)
     }
 
     private fun buildRepository(
         service: SportsService
-    ) = SportsRepositoryImpl(
-        service = service
-    )
+    ): SportsRepository {
+        return SportsRepositoryImpl(
+            service = service
+        )
+    }
 
     private fun buildLoggingInterceptor(): HttpLoggingInterceptor {
         val loggingInterceptor = HttpLoggingInterceptor()
