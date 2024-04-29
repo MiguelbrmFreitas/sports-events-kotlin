@@ -1,4 +1,4 @@
-package com.example.data.repository.remote
+package com.example.data.repository.remote.model
 
 import com.example.domain.model.Event
 import com.squareup.moshi.Json
