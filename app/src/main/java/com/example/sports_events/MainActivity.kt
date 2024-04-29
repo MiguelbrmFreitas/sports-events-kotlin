@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SportsScreen(sports = sports)
+                    SportsScreen(responseStatus = sports)
                 }
             }
         }
