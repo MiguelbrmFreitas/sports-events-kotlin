@@ -26,7 +26,7 @@ fun SportsScreen(
     Surface {
         Column(
             verticalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(top = 16.dp)
         ) {
             when(sportsState) {
                 is ResponseStatus.Success -> {
