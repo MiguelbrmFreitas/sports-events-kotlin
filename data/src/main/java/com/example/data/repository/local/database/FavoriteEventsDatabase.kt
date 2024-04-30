@@ -21,7 +21,7 @@ abstract class FavoriteEventsDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         FavoriteEventsDatabase::class.java,
-                        "finance_tracking_db"
+                        "favorite_events_db"
                     ).fallbackToDestructiveMigration()
                         .build()
                 }
@@ -31,5 +31,4 @@ abstract class FavoriteEventsDatabase : RoomDatabase() {
         }
 
     }
-
 }

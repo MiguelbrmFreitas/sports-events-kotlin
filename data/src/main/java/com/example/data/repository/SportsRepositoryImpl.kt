@@ -1,5 +1,6 @@
 package com.example.data.repository
 
+import com.example.data.repository.local.database.FavoriteEventsDatabase
 import com.example.data.repository.remote.SportsService
 import com.example.data.repository.remote.model.toSport
 import com.example.domain.core.ResponseStatus
@@ -9,7 +10,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class SportsRepositoryImpl(
-    private val service: SportsService
+    private val service: SportsService,
+    private val database: FavoriteEventsDatabase
 ): SportsRepository {
 
     override suspend fun getSports(): ResponseStatus<List<Sport>> {

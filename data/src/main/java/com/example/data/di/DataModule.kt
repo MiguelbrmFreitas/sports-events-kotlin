@@ -1,6 +1,7 @@
 package com.example.data.di
 
 import com.example.data.repository.SportsRepositoryImpl
+import com.example.data.repository.local.database.FavoriteEventsDatabase
 import com.example.data.repository.remote.SportsService
 import com.example.domain.repository.SportsRepository
 import com.example.domain.usecase.GetSportsUseCase
@@ -8,6 +9,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -24,7 +26,8 @@ object DataModule {
         loadKoinModules(
             remoteModule +
             repositoryModule +
-            useCasesModule
+            useCasesModule +
+            databaseModule
         )
     }
 
@@ -40,12 +43,17 @@ object DataModule {
 
     private val repositoryModule = module {
         single { buildRepository(
-            service = get()
+            service = get(),
+            database = get()
         ) }
     }
 
     private val useCasesModule = module {
         single { GetSportsUseCase(get()) }
+    }
+
+    private val databaseModule = module {
+        single { FavoriteEventsDatabase.getInstance(androidContext()) }
     }
 
     private fun buildRetrofit(okHttpClient: OkHttpClient, url: String): Retrofit {
@@ -60,7 +68,6 @@ object DataModule {
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addConverterFactory(ScalarsConverterFactory.create())
-//            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
     }
 
@@ -77,10 +84,12 @@ object DataModule {
     }
 
     private fun buildRepository(
-        service: SportsService
+        service: SportsService,
+        database: FavoriteEventsDatabase
     ): SportsRepository {
         return SportsRepositoryImpl(
-            service = service
+            service = service,
+            database = database
         )
     }
 
