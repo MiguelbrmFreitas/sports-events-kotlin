@@ -6,5 +6,6 @@ data class Event(
     val eventName: String,
     val firstCompetitor: String,
     val secondCompetitor: String,
-    val timestamp: Long
+    val timestamp: Long,
+    var isFavorite: Boolean = false
 )

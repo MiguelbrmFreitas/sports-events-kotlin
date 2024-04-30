@@ -18,12 +18,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.domain.model.Sport
 import com.example.sports_events.R
+import com.example.sports_events.ui.model.EventUi
 import com.example.sports_events.ui.model.SportUi
 
 @Composable
 fun SportItem(
     sport: SportUi,
-    onToggleCollapsedChanged: (SportUi) -> Unit
+    onToggleCollapsedChanged: (SportUi) -> Unit,
+    onToggleFavoriteEvent: (EventUi) -> Unit,
+    onToggleShowFavoriteEventsChanged: (SportUi) -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -59,14 +62,20 @@ fun SportItem(
                 R.drawable.up_arrow
             }
 
+            val starDrawable = if(sport.showFavorite.value) {
+                R.drawable.star_filled
+            } else {
+                R.drawable.star_empty
+            }
+
             Image(
-                painter = painterResource(id = R.drawable.star_empty),
+                painter = painterResource(id = starDrawable),
                 contentDescription = stringResource(id = R.string.content_description_star),
                 modifier = Modifier
                     .size(32.dp)
                     .padding(end = 8.dp)
                     .clickable {
-
+                        onToggleShowFavoriteEventsChanged(sport)
                     }
             )
 
@@ -78,6 +87,17 @@ fun SportItem(
         }
     }
     if (!sport.isCollapsed.value) {
-        EventGrid(sport.events)
+        val eventList = if (sport.showFavorite.value) {
+            sport.events.filter { it.isFavorite.value }
+        } else {
+            sport.events
+        }
+
+        EventGrid(
+            eventList = eventList,
+            onToggleFavorite = {
+                onToggleFavoriteEvent(it)
+            }
+        )
     }
 }

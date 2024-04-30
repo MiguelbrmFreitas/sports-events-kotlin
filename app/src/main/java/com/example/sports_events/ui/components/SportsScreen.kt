@@ -30,6 +30,12 @@ fun SportsScreen(
                         sports = sportsState.result,
                         onToggleCollapsed = {
                             sportsViewModel.toggleIsCollapsed(it)
+                        },
+                        onToggleFavorite = {
+                            sportsViewModel.toggleFavoriteEvent(it)
+                        },
+                        onToggleShowFavoriteEvents = {
+                            sportsViewModel.toggleShowFavoriteEvents(it)
                         }
                     )
                 }

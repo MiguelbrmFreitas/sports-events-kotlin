@@ -7,7 +7,7 @@ import com.example.domain.model.Event
 data class SportUi(
     val sportId: String,
     val sportName: String,
-    val events: List<Event>,
-    var isFavorite: MutableState<Boolean> = mutableStateOf(false),
-    var isCollapsed: MutableState<Boolean> = mutableStateOf(true)
+    val events: List<EventUi>,
+    val showFavorite: MutableState<Boolean> = mutableStateOf(false),
+    val isCollapsed: MutableState<Boolean> = mutableStateOf(true)
 )
