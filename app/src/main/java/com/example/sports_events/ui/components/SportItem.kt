@@ -37,8 +37,8 @@ fun SportItem(
 ) {
     Column(
         modifier = Modifier
-            .background(Color.White)
-            .padding(horizontal = 8.dp)
+            .background(Color.White),
+        verticalArrangement = Arrangement.Center
     ) {
         Divider(
             thickness = 1.dp,
@@ -49,7 +49,11 @@ fun SportItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .padding(vertical = 4.dp)
+                .padding(
+                    top = 8.dp,
+                    start = 8.dp,
+                    end = 8.dp
+                )
                 .clickable {
                     onToggleCollapsedChanged(sport)
                 }
@@ -70,7 +74,7 @@ fun SportItem(
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
-                    modifier = Modifier.padding(start = 16.dp)
+                    modifier = Modifier.padding(start = 8.dp)
                 )
             }
             Row(
@@ -108,11 +112,11 @@ fun SportItem(
                 )
             }
         }
-//        Divider(
-//            thickness = 1.dp,
-//            color = Color.Black,
-//            modifier = Modifier.padding(top = 8.dp)
-//        )
+        Divider(
+            thickness = 1.dp,
+            color = Color.Black,
+            modifier = Modifier.padding(top = 8.dp)
+        )
     }
     if (!sport.isCollapsed.value) {
         val eventList = if (sport.showFavorite.value) {

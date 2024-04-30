@@ -31,7 +31,7 @@ fun SportsScreen(
     val backgroundColor = if(isSystemInDarkTheme()) {
         DarkThemeColor
     } else {
-        Color.White
+        Color.LightGray
     }
 
     Surface(
