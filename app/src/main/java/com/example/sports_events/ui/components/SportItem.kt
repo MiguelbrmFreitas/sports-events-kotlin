@@ -3,6 +3,7 @@ package com.example.sports_events.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -41,7 +42,7 @@ fun SportItem(
     ) {
         Divider(
             thickness = 1.dp,
-            color = Color.White,
+            color = if (isSystemInDarkTheme()) Color.White else Color.Black,
         )
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -56,7 +57,9 @@ fun SportItem(
             Row(
                 horizontalArrangement = Arrangement.Absolute.Left,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxHeight().padding(top = 4.dp)
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .padding(top = 4.dp)
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.circle),
