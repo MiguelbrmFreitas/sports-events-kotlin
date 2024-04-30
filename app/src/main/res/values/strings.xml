@@ -5,4 +5,6 @@
     <string name="content_description_down_arrow">Down arrow</string>
     <string name="content_description_up_arrow">up arrow</string>
     <string name="content_description_star">Empty star</string>
+
+    <string name="versus">vs</string>
 </resources>
