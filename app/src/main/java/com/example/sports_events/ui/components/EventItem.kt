@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.domain.model.Event
 import com.example.sports_events.R
+import com.example.sports_events.helper.ext.toStringTime
 import com.example.sports_events.ui.model.EventUi
 
 @Composable
@@ -33,7 +34,7 @@ fun EventItem(
             )
     ) {
         Text(
-            text = "timer", // change later to actual timer
+            text = event.timestamp.toStringTime(), // change later to actual timer
             modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
             fontSize = 14.sp,
             fontWeight = FontWeight.Bold
