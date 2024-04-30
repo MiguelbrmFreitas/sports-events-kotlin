@@ -20,7 +20,6 @@ class GetSportsUseCase(
                     }
                     ResponseStatus.Success(filteredSports)
                 }
-
                 else -> {
                     responseStatus
                 }

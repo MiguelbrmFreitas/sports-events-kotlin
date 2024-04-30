@@ -5,12 +5,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.domain.core.ResponseStatus
+import com.example.sports_events.R
 import com.example.sports_events.viewmodel.SportsViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -48,7 +52,10 @@ fun SportsScreen(
                     )
                 }
                 is ResponseStatus.Error -> {
-
+                    Text(
+                        text = stringResource(id = R.string.error_api),
+                        textAlign = TextAlign.Center
+                    )
                 }
             }
         }
