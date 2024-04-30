@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,11 +22,13 @@ import com.example.domain.model.Event
 import com.example.sports_events.R
 import com.example.sports_events.helper.ext.toStringTime
 import com.example.sports_events.ui.model.EventUi
+import kotlinx.coroutines.launch
 
 @Composable
 fun EventItem(
     event: EventUi,
-    onToggleFavoriteChanged: (EventUi) -> Unit
+    onToggleFavoriteChanged: (EventUi) -> Unit,
+    onStartCountDownTimer: (EventUi) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -33,10 +36,13 @@ fun EventItem(
                 minWidth = 120.dp
             )
     ) {
+        onStartCountDownTimer(event)
         Text(
-            text = event.timestamp.toStringTime(), // change later to actual timer
-            modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
-            fontSize = 14.sp,
+            text = event.formattedTime.value,
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .align(Alignment.CenterHorizontally),
+            fontSize = 12.sp,
             fontWeight = FontWeight.Bold
         )
 
@@ -59,19 +65,25 @@ fun EventItem(
         )
         Text(
             text = event.firstCompetitor,
-            modifier = Modifier.padding(top = 2.dp).align(Alignment.CenterHorizontally),
+            modifier = Modifier
+                .padding(top = 2.dp)
+                .align(Alignment.CenterHorizontally),
             fontSize = 14.sp,
             textAlign = TextAlign.Center
         )
         Text(
             text = stringResource(id = R.string.versus),
             color = Color.Red,
-            modifier = Modifier.padding(top = 2.dp).align(Alignment.CenterHorizontally),
+            modifier = Modifier
+                .padding(top = 2.dp)
+                .align(Alignment.CenterHorizontally),
             fontSize = 14.sp
         )
         Text(
             text = event.secondCompetitor,
-            modifier = Modifier.padding(top = 2.dp).align(Alignment.CenterHorizontally),
+            modifier = Modifier
+                .padding(top = 2.dp)
+                .align(Alignment.CenterHorizontally),
             fontSize = 14.sp,
             textAlign = TextAlign.Center
         )

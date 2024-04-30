@@ -36,6 +36,9 @@ fun SportsScreen(
                         },
                         onToggleShowFavoriteEvents = {
                             sportsViewModel.toggleShowFavoriteEvents(it)
+                        },
+                        onStartCountDownTimer = {
+                            sportsViewModel.startCountDownTimer(it)
                         }
                     )
                 }

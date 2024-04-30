@@ -14,7 +14,8 @@ fun SportsList(
     sports: List<SportUi>,
     onToggleCollapsed: (SportUi) -> Unit,
     onToggleFavorite: (EventUi) -> Unit,
-    onToggleShowFavoriteEvents: (SportUi) -> Unit
+    onToggleShowFavoriteEvents: (SportUi) -> Unit,
+    onStartCountDownTimer: (EventUi) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier
@@ -31,6 +32,9 @@ fun SportsList(
                 },
                 onToggleShowFavoriteEventsChanged = {
                     onToggleShowFavoriteEvents(it)
+                },
+                onStartCountDownTimer = {
+                    onStartCountDownTimer(it)
                 }
             )
         }

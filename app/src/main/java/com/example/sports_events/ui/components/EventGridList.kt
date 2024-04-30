@@ -22,7 +22,8 @@ import com.example.sports_events.ui.model.EventUi
 @Composable
 fun EventGrid(
     eventList: List<EventUi>,
-    onToggleFavorite: (EventUi) -> Unit
+    onToggleFavorite: (EventUi) -> Unit,
+    onStartCountDownTimer: (EventUi) -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -37,6 +38,9 @@ fun EventGrid(
                 event = event,
                 onToggleFavoriteChanged = {
                     onToggleFavorite(it)
+                },
+                onStartCountDownTimer = {
+                    onStartCountDownTimer(it)
                 }
             )
         }

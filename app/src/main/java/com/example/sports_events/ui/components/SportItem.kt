@@ -26,7 +26,8 @@ fun SportItem(
     sport: SportUi,
     onToggleCollapsedChanged: (SportUi) -> Unit,
     onToggleFavoriteEvent: (EventUi) -> Unit,
-    onToggleShowFavoriteEventsChanged: (SportUi) -> Unit
+    onToggleShowFavoriteEventsChanged: (SportUi) -> Unit,
+    onStartCountDownTimer: (EventUi) -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -97,6 +98,9 @@ fun SportItem(
             eventList = eventList,
             onToggleFavorite = {
                 onToggleFavoriteEvent(it)
+            },
+            onStartCountDownTimer = {
+                onStartCountDownTimer(it)
             }
         )
     }
