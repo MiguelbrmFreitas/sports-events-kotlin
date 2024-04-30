@@ -1,10 +1,9 @@
 package com.example.sports_events.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -19,15 +18,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.domain.model.Sport
 import com.example.sports_events.R
+import com.example.sports_events.ui.model.SportUi
 
 @Composable
 fun SportItem(
-    sport: Sport,
-    isCollapsed: Boolean = true
+    sport: SportUi,
+    onToggleCollapsedChanged: (SportUi) -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
-        modifier = Modifier.fillMaxWidth().padding(top = 16.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp)
+            .clickable {
+                onToggleCollapsedChanged(sport)
+            }
     ) {
         Row(
             horizontalArrangement = Arrangement.Absolute.Left,
@@ -48,7 +53,7 @@ fun SportItem(
             horizontalArrangement = Arrangement.Absolute.Right,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val arrowDrawable = if(isCollapsed) {
+            val arrowDrawable = if(sport.isCollapsed.value) {
                 R.drawable.down_arrow
             } else {
                 R.drawable.up_arrow
@@ -57,7 +62,12 @@ fun SportItem(
             Image(
                 painter = painterResource(id = R.drawable.star_empty),
                 contentDescription = stringResource(id = R.string.content_description_star),
-                modifier = Modifier.size(32.dp).padding(end = 8.dp)
+                modifier = Modifier
+                    .size(32.dp)
+                    .padding(end = 8.dp)
+                    .clickable {
+
+                    }
             )
 
             Image(
@@ -66,5 +76,8 @@ fun SportItem(
                 modifier = Modifier.size(16.dp)
             )
         }
+    }
+    if (!sport.isCollapsed.value) {
+        EventGrid(sport.events)
     }
 }

@@ -3,12 +3,14 @@ package com.example.sports_events.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.domain.model.Event
@@ -20,30 +22,31 @@ fun EventItem(event: Event) {
         modifier = Modifier.padding(top = 16.dp)
     ) {
         Text(
-            text = "countdown timer", // change later to actual timer
+            text = "timer", // change later to actual timer
             modifier = Modifier.padding(top = 16.dp),
-            fontSize = 16.sp
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold
         )
         Image(
             painter = painterResource(id = R.drawable.star_empty),
             contentDescription = stringResource(id = R.string.content_description_star),
-            modifier = Modifier.padding(top = 4.dp),
+            modifier = Modifier.padding(top = 4.dp).size(8.dp)
         )
         Text(
             text = event.firstCompetitor,
             modifier = Modifier.padding(top = 4.dp),
-            fontSize = 14.sp
+            fontSize = 12.sp
         )
         Text(
             text = stringResource(id = R.string.versus),
             color = Color.Red,
             modifier = Modifier.padding(top = 4.dp),
-            fontSize = 14.sp
+            fontSize = 12.sp
         )
         Text(
             text = event.secondCompetitor,
             modifier = Modifier.padding(top = 4.dp),
-            fontSize = 14.sp
+            fontSize = 12.sp
         )
     }
 }

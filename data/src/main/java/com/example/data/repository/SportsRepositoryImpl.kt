@@ -7,7 +7,6 @@ import com.example.domain.model.Sport
 import com.example.domain.repository.SportsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.IOException
 
 class SportsRepositoryImpl(
     private val service: SportsService
