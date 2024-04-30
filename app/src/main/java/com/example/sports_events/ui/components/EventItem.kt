@@ -24,6 +24,7 @@ import com.example.domain.model.Event
 import com.example.sports_events.R
 import com.example.sports_events.helper.ext.toStringTime
 import com.example.sports_events.ui.model.EventUi
+import com.example.sports_events.ui.theme.MainRedColor
 import kotlinx.coroutines.launch
 
 @Composable
@@ -80,11 +81,12 @@ fun EventItem(
         )
         Text(
             text = stringResource(id = R.string.versus),
-            color = Color.Red,
+            color = MainRedColor,
             modifier = Modifier
                 .padding(top = 2.dp)
                 .align(Alignment.CenterHorizontally),
-            fontSize = 14.sp
+            fontSize = 14.sp,
+            fontWeight = FontWeight.ExtraBold
         )
         Text(
             text = event.secondCompetitor,

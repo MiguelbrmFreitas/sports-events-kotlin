@@ -22,7 +22,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.domain.model.Sport
 import com.example.sports_events.R
 import com.example.sports_events.ui.model.EventUi
 import com.example.sports_events.ui.model.SportUi
@@ -66,7 +65,7 @@ fun SportItem(
                     .padding(top = 4.dp)
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.circle),
+                    painter = painterResource(id = R.drawable.red_circle),
                     contentDescription = stringResource(id = R.string.content_description_circle)
                 )
                 Text(
