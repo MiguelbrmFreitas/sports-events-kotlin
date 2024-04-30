@@ -3,14 +3,13 @@ package com.example.data.repository.local.dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.data.repository.local.entity.EventEntity
-import com.example.domain.model.Event
+import com.example.data.repository.local.entity.FavoriteEventEntity
 
-interface EntityDao {
+interface FavoriteEventsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addEvent(eventEntity: EventEntity)
+    suspend fun addEvent(favoriteEventEntity: FavoriteEventEntity)
 
     @Query("SELECT * FROM table_favorite_events")
-    fun getFavoriteEvents(): List<EventEntity>
+    fun getFavoriteEvents(): List<FavoriteEventEntity>
 }

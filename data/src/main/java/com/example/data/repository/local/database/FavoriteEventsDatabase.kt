@@ -3,11 +3,11 @@ package com.example.data.repository.local.database
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.data.repository.local.dao.EntityDao
+import com.example.data.repository.local.dao.FavoriteEventsDao
 
 abstract class FavoriteEventsDatabase : RoomDatabase() {
 
-    abstract fun entityDao(): EntityDao
+    abstract fun favoriteEventsDao(): FavoriteEventsDao
 
     companion object {
 
