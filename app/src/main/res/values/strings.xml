@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">sports-events</string>
+    <string name="app_title">Upcoming Sports Events</string>
 
     <string name="content_description_circle">Red circle</string>
     <string name="content_description_down_arrow">Down arrow</string>

@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 
 val DarkThemeColor = Color(0xFF343434)
 val MainRedColor = Color(0xFFE7410F)
+val MainBlueColor = Color(0xFF0094FF)
