@@ -33,7 +33,7 @@ The app's architecture is implemented following the pattern MVVM + Clean Archite
 It has 3 modules, each is a layer:
 - app:
   - Entry point of the app and presentation layer
-  - Contains Activity, ViewModel, composables components, DI setup with koin, Application class to start DI, UI models and theme files
+  - Contains Activity, ViewModel, composables components, DI setup with koin, Application class to start DI, UI models, theme files and helper extension functions
 - domain:
   - Domain layer in pure Kotlin module with business logic
   - Contains Repository interface, domain models and use cases
@@ -41,9 +41,12 @@ It has 3 modules, each is a layer:
   - Data layer with remote and local data sources
   - Contains API models, Retrofit Service, Room setup (entity, DAO and Database), Repository implementation and DI setup with koin.
  
+ Each layer has its own models and there are mappers to convert them from one layer to another, so each layer can work with models that better match their needs.
+ 
 ## Known issues and what could improve
-- Show a scrollbar to give better feedback when scrolling (there's no built-in way to do it in Jetpack Compose and requires some manual work)
+- Show a scrollbar to give better feedback when scrolling (there's no built-in way to do it in Jetpack Compose and requires some manual work).
 - When expanding the events for a sport in the end of the list, the scroll doesn't update and the user needs to scroll a little bit more to see the events
 - Paddings, dimensions and colors are directly assigned within the composables. Should have a better work with themes and styles to avoid hard-coding.
 - Better icon for toggling on/off showing only favorite events. It's the same as the icon to fav an event and should be something different and more intuitive.
+- Improve layout and formatting for competitors with big names.
 
