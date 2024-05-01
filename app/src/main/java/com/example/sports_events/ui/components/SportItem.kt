@@ -32,7 +32,7 @@ fun SportItem(
     onToggleCollapsedChanged: (SportUi) -> Unit,
     onToggleFavoriteEvent: (EventUi) -> Unit,
     onToggleShowFavoriteEventsChanged: (SportUi) -> Unit,
-    onStartCountDownTimer: (EventUi) -> Unit
+    onStartCountDownTimer: (EventUi) -> Unit,
 ) {
     Column(
         modifier = Modifier

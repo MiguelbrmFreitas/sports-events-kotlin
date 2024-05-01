@@ -6,7 +6,6 @@ import com.example.data.repository.local.entity.toFavoriteEventList
 import com.example.data.repository.remote.SportsService
 import com.example.data.repository.remote.model.toSport
 import com.example.domain.core.ResponseStatus
-import com.example.domain.model.Event
 import com.example.domain.model.FavoriteEvent
 import com.example.domain.model.Sport
 import com.example.domain.repository.SportsRepository
@@ -37,7 +36,16 @@ class SportsRepositoryImpl(
     override suspend fun addFavoriteEvent(favoriteEvent: FavoriteEvent) {
         database.favoriteEventsDao().addEvent(
             FavoriteEventEntity(
-                eventId = favoriteEvent.sportId,
+                eventId = favoriteEvent.eventId,
+                sportId = favoriteEvent.sportId
+            )
+        )
+    }
+
+    override suspend fun removeFavoriteEvent(favoriteEvent: FavoriteEvent) {
+        database.favoriteEventsDao().deleteEvent(
+            FavoriteEventEntity(
+                eventId = favoriteEvent.eventId,
                 sportId = favoriteEvent.sportId
             )
         )

@@ -7,6 +7,7 @@ import com.example.domain.repository.SportsRepository
 import com.example.domain.usecase.AddFavoriteEventUseCase
 import com.example.domain.usecase.GetFavoriteEventsUseCase
 import com.example.domain.usecase.GetSportsUseCase
+import com.example.domain.usecase.RemoveFavoriteEventUseCase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -56,6 +57,8 @@ object DataModule {
         single { GetFavoriteEventsUseCase(get()) }
 
         single { AddFavoriteEventUseCase(get()) }
+
+        single { RemoveFavoriteEventUseCase(get()) }
     }
 
     private val databaseModule = module {

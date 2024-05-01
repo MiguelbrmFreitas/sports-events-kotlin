@@ -10,7 +10,7 @@ import com.example.data.repository.local.entity.FavoriteEventEntity
 
 @Database(
     entities = [FavoriteEventEntity::class],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 abstract class FavoriteEventsDatabase : RoomDatabase() {

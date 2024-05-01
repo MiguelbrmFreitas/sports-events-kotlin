@@ -35,9 +35,11 @@ fun EventGrid(
     if(eventList.isNotEmpty()) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
-            modifier = Modifier.heightIn(
-                max = 320.dp
-            )
+            modifier = Modifier
+                .heightIn(
+                    max = 320.dp
+                )
+                .padding(bottom = 8.dp)
         ) {
             items(eventList) { event ->
                 EventItem(
