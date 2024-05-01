@@ -27,6 +27,8 @@
 
 ## Architecture
 
+![sports_events_architecture](https://github.com/MiguelbrmFreitas/sports-events-kotlin/assets/6539610/2d0fc8a1-0ba8-458d-99b2-982595fcc297)
+
 The app's architecture is implemented following the pattern MVVM + Clean Architecture, common approach used in Android Development and well supported by the Android API.
 It has 3 modules, each is a layer:
 - app:
