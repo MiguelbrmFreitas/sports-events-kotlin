@@ -13,7 +13,7 @@ object AppModule {
     }
 
     private val appModule = module {
-        viewModel { SportsViewModel(get()) }
+        viewModel { SportsViewModel(get(), get(), get()) }
     }
 
 }

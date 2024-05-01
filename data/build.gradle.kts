@@ -47,6 +47,7 @@ dependencies {
 //    implementation(libs.kotlinx.coroutines.android)
     implementation(libs.coroutines)
     implementation(libs.room)
+    implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
     ksp(libs.room.compiler)
     implementation(libs.logging.interceptor)

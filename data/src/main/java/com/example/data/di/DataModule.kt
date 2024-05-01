@@ -4,6 +4,8 @@ import com.example.data.repository.SportsRepositoryImpl
 import com.example.data.repository.local.database.FavoriteEventsDatabase
 import com.example.data.repository.remote.SportsService
 import com.example.domain.repository.SportsRepository
+import com.example.domain.usecase.AddFavoriteEventUseCase
+import com.example.domain.usecase.GetFavoriteEventsUseCase
 import com.example.domain.usecase.GetSportsUseCase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -50,6 +52,10 @@ object DataModule {
 
     private val useCasesModule = module {
         single { GetSportsUseCase(get()) }
+
+        single { GetFavoriteEventsUseCase(get()) }
+
+        single { AddFavoriteEventUseCase(get()) }
     }
 
     private val databaseModule = module {

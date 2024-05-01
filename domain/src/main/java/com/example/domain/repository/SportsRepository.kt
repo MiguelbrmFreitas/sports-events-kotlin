@@ -11,6 +11,6 @@ interface SportsRepository {
 
     suspend fun getFavoriteEvents(): List<FavoriteEvent>
 
-    suspend fun addFavoriteEvent(event: Event)
+    suspend fun addFavoriteEvent(favoriteEvent: FavoriteEvent)
 
 }

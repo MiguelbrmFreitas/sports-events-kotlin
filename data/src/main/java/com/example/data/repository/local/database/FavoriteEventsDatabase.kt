@@ -1,10 +1,18 @@
 package com.example.data.repository.local.database
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.data.repository.local.dao.FavoriteEventsDao
+import com.example.data.repository.local.entity.FavoriteEventEntity
 
+
+@Database(
+    entities = [FavoriteEventEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class FavoriteEventsDatabase : RoomDatabase() {
 
     abstract fun favoriteEventsDao(): FavoriteEventsDao

@@ -34,11 +34,11 @@ class SportsRepositoryImpl(
         return database.favoriteEventsDao().getFavoriteEvents().toFavoriteEventList()
     }
 
-    override suspend fun addFavoriteEvent(event: Event) {
+    override suspend fun addFavoriteEvent(favoriteEvent: FavoriteEvent) {
         database.favoriteEventsDao().addEvent(
             FavoriteEventEntity(
-                eventId = event.eventId,
-                sportId = event.sportId
+                eventId = favoriteEvent.sportId,
+                sportId = favoriteEvent.sportId
             )
         )
     }
