@@ -33,6 +33,7 @@ fun SportItem(
     onToggleFavoriteEvent: (EventUi) -> Unit,
     onToggleShowFavoriteEventsChanged: (SportUi) -> Unit,
     onStartCountDownTimer: (EventUi) -> Unit,
+    filterFavoriteEvents: (SportUi) -> List<EventUi>
 ) {
     Column(
         modifier = Modifier
@@ -118,12 +119,7 @@ fun SportItem(
         )
     }
     if (!sport.isCollapsed.value) {
-        val eventList = if (sport.showFavorite.value) {
-            sport.events.filter { it.isFavorite.value }
-        } else {
-            sport.events
-        }
-
+        val eventList = filterFavoriteEvents(sport)
         EventGrid(
             eventList = eventList,
             onToggleFavorite = {

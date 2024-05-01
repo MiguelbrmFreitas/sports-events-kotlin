@@ -72,6 +72,9 @@ fun SportsScreen(
                         },
                         onStartCountDownTimer = {
                             sportsViewModel.startCountDownTimer(it)
+                        },
+                        filterFavoriteEventsBySport = {
+                            sportsViewModel.filterFavoriteEventsBySport(it)
                         }
                     )
                 }

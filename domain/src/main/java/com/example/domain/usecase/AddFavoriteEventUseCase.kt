@@ -1,6 +1,5 @@
 package com.example.domain.usecase
 
-import com.example.domain.model.Event
 import com.example.domain.model.FavoriteEvent
 import com.example.domain.repository.SportsRepository
 

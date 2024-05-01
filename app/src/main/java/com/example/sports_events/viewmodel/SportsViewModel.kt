@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.core.ResponseStatus
-import com.example.domain.model.Event
 import com.example.domain.model.FavoriteEvent
 import com.example.domain.usecase.AddFavoriteEventUseCase
 import com.example.domain.usecase.GetFavoriteEventsUseCase
@@ -65,8 +64,12 @@ class SportsViewModel(
         }
     }
 
-    fun onSportClicked(sport: SportUi) {
-        updateSportListWithFavoriteEvents(sport)
+    fun filterFavoriteEventsBySport(sport: SportUi): List<EventUi> {
+        return if (sport.showFavorite.value) {
+            sport.events.filter { it.isFavorite.value }
+        } else {
+            sport.events
+        }
     }
 
     private fun getSports() {
