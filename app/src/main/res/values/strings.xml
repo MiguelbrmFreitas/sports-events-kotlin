@@ -10,4 +10,5 @@
     <string name="versus">vs</string>
     <string name="error_api">Error fetching data from API.</string>
     <string name="empty_events">No upcoming events for this sport.</string>
+    <string name="empty_sports">No sports events to show.</string>
 </resources>
