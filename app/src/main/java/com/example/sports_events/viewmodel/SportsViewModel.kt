@@ -64,14 +64,6 @@ class SportsViewModel(
         }
     }
 
-    fun filterFavoriteEventsBySport(sport: SportUi): List<EventUi> {
-        return if (sport.showFavorite.value) {
-            sport.events.filter { it.isFavorite.value }
-        } else {
-            sport.events
-        }
-    }
-
     private fun getSports() {
         viewModelScope.launch {
             getSportsUseCase.invoke().let { sportsResponse ->

@@ -44,7 +44,6 @@ dependencies {
     implementation(libs.retrofit.converter.scalar)
     implementation(libs.moshi)
     implementation(libs.moshi.adapters)
-//    implementation(libs.kotlinx.coroutines.android)
     implementation(libs.coroutines)
     implementation(libs.room)
     implementation(libs.room.ktx)

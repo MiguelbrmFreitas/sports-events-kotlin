@@ -26,7 +26,6 @@ fun SportsList(
     onToggleFavorite: (EventUi) -> Unit,
     onToggleShowFavoriteEvents: (SportUi) -> Unit,
     onStartCountDownTimer: (EventUi) -> Unit,
-    filterFavoriteEventsBySport: (SportUi) -> List<EventUi>
 ) {
     if (sports.isNotEmpty()) {
         LazyColumn(
@@ -49,9 +48,6 @@ fun SportsList(
                     },
                     onStartCountDownTimer = {
                         onStartCountDownTimer(it)
-                    },
-                    filterFavoriteEvents = {
-                        filterFavoriteEventsBySport(it)
                     }
                 )
             }

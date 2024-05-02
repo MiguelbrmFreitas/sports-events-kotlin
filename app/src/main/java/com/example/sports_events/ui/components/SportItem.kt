@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sports_events.R
+import com.example.sports_events.helper.ext.filterFavoriteEvents
 import com.example.sports_events.ui.model.EventUi
 import com.example.sports_events.ui.model.SportUi
 
@@ -33,7 +34,6 @@ fun SportItem(
     onToggleFavoriteEvent: (EventUi) -> Unit,
     onToggleShowFavoriteEventsChanged: (SportUi) -> Unit,
     onStartCountDownTimer: (EventUi) -> Unit,
-    filterFavoriteEvents: (SportUi) -> List<EventUi>
 ) {
     Column(
         modifier = Modifier
@@ -119,7 +119,7 @@ fun SportItem(
         )
     }
     if (!sport.isCollapsed.value) {
-        val eventList = filterFavoriteEvents(sport)
+        val eventList = sport.filterFavoriteEvents()
         EventGrid(
             eventList = eventList,
             onToggleFavorite = {
