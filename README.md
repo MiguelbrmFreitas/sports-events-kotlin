@@ -24,6 +24,7 @@
 - Network calls with [Retrofit](https://github.com/square/retrofit)
 - Local database storage with [Room](https://developer.android.com/training/data-storage/room)
 - JSON parsing with [Moshi](https://github.com/square/moshi)
+- Unit testing with [JUnit4](https://developer.android.com/training/testing/local-tests)
 
 ## Architecture
 
@@ -49,4 +50,5 @@ It has 3 modules, each is a layer:
 - Paddings, dimensions and colors are directly assigned within the composables. Should have a better work with themes and styles to avoid hard-coding.
 - Better icon for toggling on/off showing only favorite events. It's the same as the icon to fav an event and should be something different and more intuitive.
 - Improve layout and formatting for competitors with big names.
+- Improve test coverage
 
